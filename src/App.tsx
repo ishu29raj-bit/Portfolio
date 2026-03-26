@@ -45,11 +45,11 @@ export default function App() {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#f8f9fa]/80 dark:bg-neutral-950/80 backdrop-blur-md transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6 md:px-12 h-24 flex items-center justify-between">
-          <a href="mailto:hi@yeeshuraj.design" className="flex items-center gap-3 text-neutral-950 dark:text-neutral-50 font-medium hover:opacity-70 transition-opacity">
+          <a href="mailto:yeeshuraj.design@gmail.com" className="flex items-center gap-3 text-neutral-950 dark:text-neutral-50 font-medium hover:opacity-70 transition-opacity">
             <div className="w-10 h-10 rounded-full border border-neutral-200 dark:border-neutral-800 flex items-center justify-center bg-white dark:bg-neutral-900 shadow-sm transition-colors duration-300">
               <Mail className="w-4 h-4" />
             </div>
-            <span className="text-sm font-semibold tracking-tight hidden sm:block">hi@yeeshuraj.design</span>
+            <span className="text-sm font-semibold tracking-tight hidden sm:block">yeeshuraj.design@gmail.com</span>
           </a>
           <div className="hidden md:flex items-center gap-10 text-sm font-semibold text-neutral-950 dark:text-neutral-50 transition-colors duration-300">
             <a href="#work" className="hover:opacity-70 transition-opacity">Works</a>
@@ -322,7 +322,7 @@ export default function App() {
             </FadeIn>
             <FadeIn delay={0.2}>
               <a
-                href="mailto:hi@yeeshuraj.design"
+                href="mailto:yeeshuraj.design@gmail.com"
                 className="inline-flex items-center gap-2 bg-neutral-950 dark:bg-white text-white dark:text-neutral-950 px-10 py-5 rounded-full text-lg md:text-xl font-bold tracking-wide hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-all hover:scale-105 active:scale-95"
               >
                 <Mail className="w-5 h-5" />
