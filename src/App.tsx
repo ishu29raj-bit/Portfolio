@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
-import { ArrowRight, Camera, Play, TrendingUp, Mail, ArrowUpRight, Sun, Moon } from "lucide-react";
+import { ArrowRight, Camera, Play, TrendingUp, Mail, ArrowUpRight, Sun, Moon, Check } from "lucide-react";
 
 const FadeIn = ({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) => (
   <motion.div
@@ -53,7 +53,7 @@ export default function App() {
           </a>
           <div className="hidden md:flex items-center gap-10 text-sm font-semibold text-neutral-950 dark:text-neutral-50 transition-colors duration-300">
             <a href="#work" className="hover:opacity-70 transition-opacity">Works</a>
-            <a href="#about" className="hover:opacity-70 transition-opacity">Resume</a>
+            <a href="#pricings" className="hover:opacity-70 transition-opacity">Pricings</a>
             <a href="#services" className="hover:opacity-70 transition-opacity">Services</a>
             <a href="#contact" className="hover:opacity-70 transition-opacity">Contact</a>
           </div>
@@ -81,9 +81,10 @@ export default function App() {
             <FadeIn delay={0.1}>
               <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-[#e0f2fe] dark:bg-[#082f49] overflow-hidden mb-6 mx-auto border-4 border-white dark:border-neutral-800 shadow-sm transition-colors duration-300">
                 <img 
-                  src="https://api.dicebear.com/9.x/micah/svg?seed=Yeeshuraj&backgroundColor=transparent" 
+                  src="https://i.ibb.co/zTsCpWbQ/myimage.png" 
                   alt="Yeeshuraj Ankush" 
-                  className="w-full h-full object-cover scale-110 translate-y-2"
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
                 />
               </div>
             </FadeIn>
@@ -304,6 +305,82 @@ export default function App() {
                 </div>
               </div>
             </FadeIn>
+          </div>
+        </section>
+
+        {/* Pricing Section */}
+        <section id="pricings" className="py-32 px-6">
+          <div className="max-w-7xl mx-auto">
+            <FadeIn>
+              <div className="text-center mb-16">
+                <h2 className="text-3xl md:text-5xl font-bold tracking-tighter mb-6 transition-colors duration-300">
+                  Simple, transparent <br />
+                  <span className="text-neutral-400 dark:text-neutral-500">pricing.</span>
+                </h2>
+                <p className="text-lg text-neutral-500 dark:text-neutral-400 max-w-2xl mx-auto transition-colors duration-300">
+                  Choose the plan that best fits your brand's content needs.
+                </p>
+              </div>
+            </FadeIn>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+              {[
+                {
+                  name: "Starter",
+                  price: "$110",
+                  period: "/month",
+                  desc: "Perfect for emerging brands looking to establish a visual presence.",
+                  features: ["30 AI Product Images", "5 UGC Video Ads", "Basic Social Strategy", "Email Support"]
+                },
+                {
+                  name: "Growth",
+                  price: "$270",
+                  period: "/month",
+                  desc: "Ideal for scaling businesses needing consistent, high-quality content.",
+                  features: ["70 AI Product Images", "10 UGC Video Ads", "Comprehensive Strategy", "Priority Support", "A/B Testing Assets"],
+                  popular: true
+                },
+                {
+                  name: "Enterprise",
+                  price: "Custom",
+                  period: "",
+                  desc: "Tailored solutions for large brands with high-volume content needs.",
+                  features: ["Personalized AI Imagery", "Custom Video Production", "Dedicated Account Manager", "24/7 Support", "Custom Integrations"]
+                }
+              ].map((plan, i) => (
+                <FadeIn key={i} delay={i * 0.1}>
+                  <div className={`relative p-8 rounded-3xl border ${plan.popular ? 'border-neutral-950 dark:border-white bg-neutral-950 dark:bg-white text-white dark:text-neutral-950' : 'border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900'} transition-colors duration-300 h-full flex flex-col`}>
+                    {plan.popular && (
+                      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-neutral-950 dark:bg-white text-white dark:text-neutral-950 px-4 py-1 rounded-full text-xs font-bold tracking-wider uppercase border border-neutral-950 dark:border-white">
+                        Most Popular
+                      </div>
+                    )}
+                    <h3 className="text-xl font-semibold mb-2">{plan.name}</h3>
+                    <div className="mb-6">
+                      <span className="text-4xl font-bold tracking-tighter">{plan.price}</span>
+                      <span className={`text-sm ${plan.popular ? 'text-neutral-300 dark:text-neutral-600' : 'text-neutral-500 dark:text-neutral-400'}`}>{plan.period}</span>
+                    </div>
+                    <p className={`mb-8 text-sm ${plan.popular ? 'text-neutral-300 dark:text-neutral-600' : 'text-neutral-500 dark:text-neutral-400'}`}>
+                      {plan.desc}
+                    </p>
+                    <ul className="space-y-4 mb-8 flex-grow">
+                      {plan.features.map((feature, j) => (
+                        <li key={j} className="flex items-start gap-3 text-sm">
+                          <Check className={`w-5 h-5 shrink-0 ${plan.popular ? 'text-white dark:text-neutral-950' : 'text-neutral-950 dark:text-white'}`} />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <a
+                      href="#contact"
+                      className={`block w-full py-4 rounded-full text-center font-semibold transition-all ${plan.popular ? 'bg-white dark:bg-neutral-950 text-neutral-950 dark:text-white hover:opacity-90' : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-950 dark:text-white hover:bg-neutral-200 dark:hover:bg-neutral-700'}`}
+                    >
+                      Get Started
+                    </a>
+                  </div>
+                </FadeIn>
+              ))}
+            </div>
           </div>
         </section>
 
